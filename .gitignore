@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# C++ build
+ann/build/
+
+# Local state
+.claude/
+.vscode/
+
+# Runtime artifacts
+ann/logs/
+ann/data/
+ann/results/
+ann/figures/

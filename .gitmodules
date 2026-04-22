@@ -1,0 +1,3 @@
+[submodule "RaBitQ-Library"]
+	path = RaBitQ-Library
+	url = git@github.com:VectorDB-NTU/RaBitQ-Library.git

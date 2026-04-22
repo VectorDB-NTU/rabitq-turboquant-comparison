@@ -1,0 +1,5 @@
+datasets>=2.20.0
+h5py>=3.10.0
+numpy>=1.24.0
+Pillow>=10.0.0
+torch>=2.1.0

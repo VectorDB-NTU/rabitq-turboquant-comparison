@@ -1,0 +1,28 @@
+# Build outputs
+build/
+bin/
+
+# CMake leftovers if run out-of-tree
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+
+# Compiled objects / executables
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.cache/
+
+# OS
+.DS_Store
+Thumbs.db
