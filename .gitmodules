@@ -1,3 +1,6 @@
 [submodule "RaBitQ-Library"]
 	path = RaBitQ-Library
 	url = git@github.com:VectorDB-NTU/RaBitQ-Library.git
+[submodule "kv_cache"]
+	path = kv_cache
+	url = git@github.com:VectorDB-NTU/RabitQ_TurboQuant_KV_Comparison.git
