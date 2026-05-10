@@ -173,11 +173,14 @@ python eval/run_needle.py --backend rabitq --bits 2.5
 If this repository is helpful for your research, please cite:
 
 ```bibtex
-@article{gao2025revisiting,
-  title={Revisiting RaBitQ and TurboQuant: A Symmetric Comparison of Methods, Theory, and Experiments},
-  author={Gao, Jianyang and Gou, Yutong and Xu, Yuexuan and Shi, Jifan and Yang, Yongyi and Li, Shuolin and Wong, Raymond Chi-Wing and Long, Cheng},
-  journal={arXiv preprint arXiv:2604.19528},
-  year={2025}
+@misc{gao2026revisitingrabitqturboquantsymmetric,
+      title={Revisiting RaBitQ and TurboQuant: A Symmetric Comparison of Methods, Theory, and Experiments}, 
+      author={Jianyang Gao and Yutong Gou and Yuexuan Xu and Jifan Shi and Yongyi Yang and Shuolin Li and Raymond Chi-Wing Wong and Cheng Long},
+      year={2026},
+      eprint={2604.19528},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2604.19528}, 
 }
 ```
 
