@@ -33,7 +33,7 @@ In addition, we note that both RaBitQ and TurboQuant involve randomness through 
 
 ## Figure 3: Recall comparison on different datasets
 
-![Recall Comparison](figures/recall_at1_three_panel.png)
+![Recall Comparison](../docs/figures/recall_at1_three_panel.png)
 
 Three subplots correspond to GloVe-200, OpenAI3-1536, and OpenAI3-3072 respectively.
 

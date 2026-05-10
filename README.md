@@ -6,22 +6,7 @@
 
 This repository contains the complete experimental code and results for the comparison of **RaBitQ** and **TurboQuant** — two vector quantization methods — across four aspects: quantization accuracy, ANN recall, quantization efficiency, and LLM KV-cache quantization.
 
-## Abstract
-
-This technical note revisits the relationship between RaBitQ and TurboQuant under a unified comparison framework. We compare the two methods in terms of methodology, theoretical guarantees, and empirical performance, using a reproducible, transparent, and symmetric setup. Our results show that, despite the claimed advantage of TurboQuant, TurboQuant performs worse than RaBitQ in most tested settings of inner-product estimation, nearest-neighbor search and KV cache quantization. We further find that several reported runtime and recall results in the TurboQuant paper could not be reproduced from the released implementation under the stated configuration. Overall, this note clarifies the shared structure and genuine differences between the two lines of work, while documenting reproducibility issues in the experimental results reported by the TurboQuant paper.
-
-## Key Findings
-
-### Methodology ([details in docs/algorithms.md](docs/algorithms.md))
-
-At the method level, both RaBitQ and TurboQuant apply a random rotation as their first step and exploit the resulting distributional properties to design their respective quantization schemes as well as analyzing the unbiasedness and error bounds for inner product estimation. The key difference: RaBitQ uses a uniform codebook obtained by shifting unsigned integers and estimates inner products without decoding; TurboQuant uses a non-uniform codebook constructed by *k*-means and requires codebook lookup for decoding.
-
-### Theoretical Guarantees ([details in docs/theoretical_guarantees.md](docs/theoretical_guarantees.md))
-
-- **RaBitQ**: provably achieves the asymptotically optimal space-distortion trade-off established by Alon and Klartag (2017), with a bit-width that grows with the failure probability δ at the rate of **log log(1/δ)**.
-- **TurboQuant**: provides only a variance guarantee on its estimator. Converting this to a tail bound via Chebyshev's inequality yields a dependence that grows as **log(1/δ)**, which is exponentially worse than the optimal rate.
-
-### Experimental Results
+## Experimental Results
 
 #### 1. Quantization Accuracy ([details in accuracy/RESULTS.md](accuracy/RESULTS.md))
 
@@ -69,7 +54,7 @@ In nearest neighbor search, RaBitQ consistently achieves higher recall than both
 | RaBitQ 3.5-bit | 0.977 |
 | TurboQuant_mse 3.5-bit | 0.962 |
 | RaBitQ 2.5-bit | 0.951 |
-| TurboQuant_mse 2.5-bit | **0.709** |
+| TurboQuant_mse 2.5-bit | 0.709 |
 
 TurboQuant degrades sharply at 2.5-bit, with failures concentrated at long contexts (mean score falls from 0.898 at ≤32k to 0.615 at >32k).
 
@@ -91,7 +76,7 @@ In KV cache quantization, RaBitQ shows clear gains at 2.5-bit, and the two metho
 ## Repository Structure
 
 ```
-├── docs/                Algorithm comparison, theoretical guarantees, bug analysis, shared figures
+├── docs/                KV-cache results, bug analysis, shared figures
 │   └── figures/             All paper figure assets
 ├── accuracy/            Quantization accuracy experiments (paper Section 4.1)
 ├── ann/                 Nearest neighbor search experiments (paper Section 4.3)
@@ -107,12 +92,6 @@ In KV cache quantization, RaBitQ shows clear gains at 2.5-bit, and the two metho
 ```
 
 Each experiment directory has its own `README.md` (run instructions) and `RESULTS.md` (results & analysis).
-
-## Documentation
-
-- [`docs/algorithms.md`](docs/algorithms.md) — Comparison of methodology under a unified framework (paper Section 2)
-- [`docs/theoretical_guarantees.md`](docs/theoretical_guarantees.md) — Comparison of theoretical guarantees (paper Section 3)
-- [`docs/turbo_bugs.md`](docs/turbo_bugs.md) — Detailed analysis of four bugs in the original TurboQuant LLM code
 
 ## Setup
 
